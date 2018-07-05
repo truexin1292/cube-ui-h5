@@ -1,10 +1,13 @@
 <template>
 	<div class="match">
 		<div class="header">
+			<span @click="backTo" class="back-btn">返回</span>
 			<h1 class="title" @click="showPicker">
 				<span>{{source}}赛事</span>
 				<i class="cubeic-select" :class="{down: toDown}"></i>
 			</h1>
+			<span @click="toHome" class="home-btn">首页</span>
+
 			<div class="navigator">
 				<ul class="nav-list">
 					<li v-for="(item, index) in tabList" :key="index"
@@ -21,7 +24,8 @@
 				:initialIndex="currentPage"
 				:loop="false"
 				:autoPlay="false"
-				:threshold="0.1"
+				:threshold="0.3"
+				:allow-vertical="true"
 				@change="slideChange">
 				<cube-slide-item v-for="(item, index) in tabList" :key="index">
 					<div class="match-list-wrapper">
@@ -87,11 +91,18 @@
 				this.currentPage = index;
 			},
 			slideChange(index) {
+				console.log("slideChange", index);
 				this.currentPage = index;
 			},
 			showPicker() {
 				this.toDown = true;
 				this.picker.show();
+			},
+			backTo() {
+				this.$router.go(-1);
+			},
+			toHome() {
+				this.$router.push("/home");
 			}
 		},
 		components: {
@@ -115,9 +126,17 @@
 				font-size: 16px
 				color: white
 				display: inline-block
+				font-weight: bold
 				.down
 					display: inline-block
 					transform: rotate(180deg)
+			.back-btn
+				padding: 20px 0 0 10px
+				float: left
+			.home-btn
+				padding: 20px 10px 0 0
+				float: right
+				color: #49873d
 			.navigator
 				position: relative
 				padding-bottom: 12px

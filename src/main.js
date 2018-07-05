@@ -35,7 +35,10 @@ import {
 	IndexList,
 	Swipe,
 	Upload,
-	createAPI
+	createAPI,
+	TabBar,
+	ScrollNav,
+	ImagePreview
 } from "cube-ui";
 import App from "./App";
 import router from "./router";
@@ -72,6 +75,9 @@ Vue.use(Slide);
 Vue.use(IndexList);
 Vue.use(Swipe);
 Vue.use(Upload);
+Vue.use(TabBar);
+Vue.use(ScrollNav);
+Vue.use(ImagePreview);
 
 Vue.config.productionTip = false;
 
