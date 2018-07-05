@@ -34,10 +34,15 @@ import {
 	Slide,
 	IndexList,
 	Swipe,
-	Upload
+	Upload,
+	createAPI
 } from "cube-ui";
 import App from "./App";
 import router from "./router";
+
+import SubscribeDialog from "./components/subscribe-dialog/subscribe-dialog";
+
+createAPI(Vue, SubscribeDialog, [], true);
 
 Vue.use(Button);
 Vue.use(Toolbar);
@@ -59,6 +64,7 @@ Vue.use(DatePicker);
 Vue.use(SegmentPicker);
 Vue.use(TimePicker);
 Vue.use(Dialog);
+Vue.use(Popup);
 Vue.use(ActionSheet);
 Vue.use(Drawer);
 Vue.use(Scroll);
